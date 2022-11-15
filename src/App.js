@@ -1,14 +1,14 @@
 import './App.css';
 import MiApi from './components/MiApi';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <MiApi />
-      <Footer />
+      <Navbar brand="Eres fa de Rick y Morty?" />
+      <div>
+        <MiApi />
+      </div>
     </div>
   );
 }

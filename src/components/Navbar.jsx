@@ -1,11 +1,13 @@
 import React from 'react'
-import "../App.css";
 
-const Navbar = () => {
+const Navbar = ({ brand }) => {
   return (
-    <div className='navbar-container'>
-        <h1>Football App ⚽</h1>
-    </div>
+    // Componente generado para no llenar mucho el archivo principal
+    <nav className='navbar navbar-dark bg-dark'>
+      <div className='container mt-5'>
+       <a className='navbar-brand text-uppercase' href='/'>{brand}</a>
+      </div>
+    </nav>
   )
 }
 

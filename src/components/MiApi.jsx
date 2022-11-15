@@ -1,32 +1,29 @@
-import React, { useState, useEffect } from 'react'
-import '../App.css';
-import Players from './Players';
-import Country from './Country';
+import React, {useState, useEffect} from 'react';
+import Personages from './Personages';
+
+// Desarrollando la funcion fetch para poder crear una promesa con el link de la api publica elegida
 
 const MiApi = () => {
-    const [active, setActive] = useState(true);
+
+    const [personages, setPersonages] = useState([]);
+
+    const initUrl = 'https://rickandmortyapi.com/api/character';
+    // Esta funcion esta a cargo de llamar a red 
+    const fetchPersonages = (url) => {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setPersonages(data.results))
+            .catch(error => console.log(error))
+    };
 
     useEffect(() => {
-
-    }, []);
+        fetchPersonages(initUrl)
+    }, [])
 
   return (
-    
-    // 3. Crea un componente llamado MiApi.jsx e impórtalo dentro de App.jsx
-    <div className='miapp-container'>
-        <div className='tabs'>
-            <div className='tab-players' onClick={() => setActive(true)}>
-                <h2 style={{ color: active ? '#c20114' : null }}>Jugadores</h2>
-            </div>
-            <div className='tab-country' onClick={() => setActive(false)}>
-                <h2 style={{ color: !active ? '#c20114' : null }} >Nacionalidad</h2>
-            </div>
-        </div>
-
-        { active ? <Players /> : <Country />}
-    </div>
-
-
+    <>
+    <Personages personages={personages} />
+    </>
   )
 }
 
