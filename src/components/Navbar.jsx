@@ -1,6 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Navbar = ({ brand }) => {
+
   return (
     // Componente generado para no llenar mucho el archivo principal
     <nav className='navbar navbar-dark bg-dark'>
